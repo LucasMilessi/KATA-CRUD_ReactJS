@@ -1,11 +1,4 @@
-import React, {
-  useContext,
-  useReducer,
-  useEffect,
-  useRef,
-  useState,
-  createContext,
-} from "react";
+import React, {  useContext,  useReducer,  useEffect,  useRef,  useState,  createContext} from "react";
 
 const HOST_API = "http://localhost:8080/api";
 
@@ -73,7 +66,7 @@ const Form = () => {
 
   return (
     <form ref={formRef}>
-      <input
+      <input className="alert alert-primary"
         type="text"
         name="name"
         defaultValue={item.name}
@@ -111,22 +104,22 @@ const List = () => {
   };
 
   return (
-    <div>
+    <div className="alert alert-warning">
       <table>
         <thead>
           <tr>
-            <td>ID</td>
-            <td>Nombre</td>
-            <td>¿Esta completado?</td>
+            <td className="alert alert-success">ID</td>
+            <td className="alert alert-dark">Nombre</td>
+            <td className="alert alert-primary">¿Esta completado?</td>
           </tr>
         </thead>
         <tbody>
           {state.list.map((todo) => {
             return (
               <tr key={todo.id}>
-                <td>{todo.id}</td>
-                <td>{todo.name}</td>
-                <td>{todo.isCompleted === true ? "SI" : "NO"}</td>
+                <td className="alert alert-success">{todo.id}</td>
+                <td className="alert alert-dark">{todo.name}</td>
+                <td className="alert alert-primary">{todo.isCompleted === true ? "SI" : "NO"}</td>
                 <td>
                   <button className="btn btn-danger" onClick={() => onDelete(todo.id)}>Eliminar</button>
                 </td>
